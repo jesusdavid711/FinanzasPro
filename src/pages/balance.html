@@ -14,8 +14,8 @@
         <div class="header-content">
             <h1 class="logo">AhorrADAs</h1>
             <div class="user-info">
-                <span class="welcome">Bienvenido, Usuario</span>
-                <button class="btn-logout" type="button">Cerrar Sesión</button>
+                <span class="welcome">Bienvenido, Admin</span>
+                <button class="btn-logout" type="button"> <a href="login.html">Cerrar Sesión</a></button>
             </div>
         </div>
     </header>
@@ -24,9 +24,9 @@
     <nav class="nav">
         <div class="nav-content">
             <ul class="nav-list">
-                <li><a href="balance.html" class="nav-link active">Balance</a></li>
-                <li><a href="categories.html" class="nav-link">Categorías</a></li>
-                <li><a href="reports.html" class="nav-link">Reportes</a></li>
+                <li><a href="./operations.html" class="nav-link active">operaciones</a></li>
+                <li><a href="./categories.html" class="nav-link">Categorías</a></li>
+                <li><a href="./balance.html" class="nav-link">Reportes</a></li>
             </ul>
         </div>
     </nav>
@@ -109,9 +109,9 @@
                 <section class="operations">
                     <header class="ops-header">
                         <h2 class="title">Operaciones</h2>
-                        <button class="btn-primary" type="button" id="newOpBtn">
+                        <a href="./operations.html"><button class="btn-primary" type="button" id="newOpBtn">
                             + Nueva operación
-                        </button>
+                        </button></a>
                     </header>
 
                     <!-- Empty State -->
@@ -196,8 +196,8 @@
     </dialog>
 
     <!-- Scripts -->
-    <script src="js/data-manager.js"></script>
-    <script src="js/balance.js"></script>
+    <script src="../js/data-manager.js"></script>
+    <script src="../js/balance.js"></script>
 </body>
 
 </html>

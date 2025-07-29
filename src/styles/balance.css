@@ -99,7 +99,10 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
 }
-
+.btn-logout > a{
+    text-decoration: none;
+    color:var(--white);
+}
 .btn-logout:hover {
     background: rgba(255, 255, 255, 0.25);
 }
@@ -140,15 +143,15 @@ body {
     font-size: 1rem;
 }
 
-.nav-link[href="balance.html"]::before {
+.nav-link[href="./categories.html"]::before {
     content: "📊";
 }
 
-.nav-link[href="categories.html"]::before {
+.nav-link[href="./operations.html"]::before{
     content: "🏷️";
 }
 
-.nav-link[href="reports.html"]::before {
+.nav-link[href="./reports.html"]::before {
     content: "📈";
 }
 

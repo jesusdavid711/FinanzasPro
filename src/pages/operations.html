@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/operations.css">
+    <script type="module" src="../js/guardian.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-title">
+            <h1>AhorrADAs</h1>
+        </div>
+        <a href="./balance.html"><button id="back-dashboard" class="btn-logout" onclick="location.href='dashboard.html'">⟵ Volver</button></a>
+    </header>
+
+    <main class="main-container">
+        <!-- Sección de formulario -->
+        <section class="form-section">
+            <h2>Nueva operación</h2>
+            <form id="form-movimiento">
+                <div class="form-group">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">-- Selecciona --</option>
+                        <option value="gasto">Gasto</option>
+                        <option value="ganancia">Ganancia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" id="descripcion" name="descripcion" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="importe">Importe ($)</label>
+                    <input type="number" id="importe" name="importe" min="0" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">-- Selecciona --</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-guardar">+ Agregar Nueva operación</button>
+            </form>
+        </section>
+
+        <!-- Sección de tabla -->
+        <section class="tabla-section">
+            <h2>filtros</h2>
+
+            <div class="filtros">
+                <select id="filtro-tipo">
+                    <option value="">Tipo</option>
+                    <option value="gasto">Gasto</option>
+                    <option value="ganancia">Ganancia</option>
+                </select>
+
+                <select id="filtro-categoria">
+                    <option value="">Categoría</option>
+                </select>
+
+                <input type="date" id="filtro-fecha-inicio" />
+                <input type="date" id="filtro-fecha-fin" />
+
+                <button id="btn-limpiar-filtros">Limpiar</button>
+            </div>
+
+            <table id="tabla-movimientos">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Importe</th>
+                        <th>Fecha</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-movimientos"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../js/movimientos.js"></script>
+</body>
+
+</html>
