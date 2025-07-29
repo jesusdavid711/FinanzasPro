@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance - FinanzasPRO</title>
+    <link rel="stylesheet" href="../styles/balance.css">
+</head>
+
+<body>
+    <!-- Main Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">AhorrADAs</h1>
+            <div class="user-info">
+                <span class="welcome">Bienvenido, Usuario</span>
+                <button class="btn-logout" type="button">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-list">
+                <li><a href="balance.html" class="nav-link active">Balance</a></li>
+                <li><a href="categories.html" class="nav-link">Categorías</a></li>
+                <li><a href="reports.html" class="nav-link">Reportes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Main Layout -->
+            <div class="layout">
+                <!-- Left Sidebar -->
+                <aside class="sidebar">
+                    <!-- Balance Summary -->
+                    <section class="balance">
+                        <h2 class="title">Balance</h2>
+                        <div class="balance-item">
+                            <span class="label">Ganancias</span>
+                            <span class="amount positive" id="earnings">+$0</span>
+                        </div>
+                        <div class="balance-item">
+                            <span class="label">Gastos</span>
+                            <span class="amount negative" id="expenses">-$0</span>
+                        </div>
+                        <div class="balance-item">
+                            <span class="label">Total</span>
+                            <span class="amount neutral" id="total">$0</span>
+                        </div>
+                    </section>
+
+                    <!-- Filters Panel -->
+                    <section class="filters">
+                        <header class="filters-header">
+                            <h3 class="title">Filtros</h3>
+                            <button class="toggle" type="button" aria-expanded="true" id="filterToggle">
+                                Ocultar filtros
+                            </button>
+                        </header>
+
+                        <form class="filters-form" role="search" id="filtersForm">
+                            <div class="field">
+                                <label for="typeFilter" class="label">Tipo</label>
+                                <select id="typeFilter" class="select" name="type">
+                                    <option value="">Todos</option>
+                                    <option value="expense">Gasto</option>
+                                    <option value="income">Ganancia</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="categoryFilter" class="label">Categoría</label>
+                                <select id="categoryFilter" class="select" name="category">
+                                    <option value="">Todas</option>
+                                    <option value="services">Servicios</option>
+                                    <option value="food">Alimentación</option>
+                                    <option value="transport">Transporte</option>
+                                    <option value="entertainment">Entretenimiento</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="dateFilter" class="label">Desde</label>
+                                <input type="date" id="dateFilter" class="input" name="date" value="2025-07-29">
+                            </div>
+
+                            <div class="field">
+                                <label for="sortBy" class="label">Ordenar por</label>
+                                <select id="sortBy" class="select" name="sort">
+                                    <option value="date-desc">Más reciente</option>
+                                    <option value="date-asc">Menos reciente</option>
+                                    <option value="amount-desc">Mayor monto</option>
+                                    <option value="amount-asc">Menor monto</option>
+                                    <option value="desc-asc">A/Z</option>
+                                    <option value="desc-desc">Z/A</option>
+                                </select>
+                            </div>
+                        </form>
+                    </section>
+                </aside>
+
+                <!-- Operations Area -->
+                <section class="operations">
+                    <header class="ops-header">
+                        <h2 class="title">Operaciones</h2>
+                        <button class="btn-primary" type="button" id="newOpBtn">
+                            + Nueva operación
+                        </button>
+                    </header>
+
+                    <!-- Empty State -->
+                    <div class="empty" id="emptyState">
+                        <div class="empty-icon" aria-hidden="true"></div>
+                        <h3 class="empty-title">Sin resultados</h3>
+                        <p class="empty-text">Cambia los filtros o agrega operaciones</p>
+                    </div>
+
+                    <!-- Operations Table (hidden initially) -->
+                    <div class="table-wrap" id="tableWrap" style="display: none;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Categoría</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Monto</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="opsTable">
+                                <!-- Operations will be loaded here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Operation Modal -->
+    <dialog class="modal" id="opModal" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="modalTitle" class="modal-title">Nueva operación</h2>
+                <button class="modal-close" type="button" aria-label="Cerrar modal" id="closeModal">×</button>
+            </header>
+
+            <form class="modal-form" id="opForm">
+                <div class="field">
+                    <label for="opDesc" class="label">Descripción</label>
+                    <input type="text" id="opDesc" class="input" name="description" required>
+                </div>
+
+                <div class="field">
+                    <label for="opAmount" class="label">Monto</label>
+                    <input type="number" id="opAmount" class="input" name="amount" min="0" step="0.01" required>
+                </div>
+
+                <div class="field">
+                    <label for="opType" class="label">Tipo</label>
+                    <select id="opType" class="input" name="type" required>
+                        <option value="">Seleccionar</option>
+                        <option value="expense">Gasto</option>
+                        <option value="income">Ganancia</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="opCategory" class="label">Categoría</label>
+                    <select id="opCategory" class="input" name="category" required>
+                        <option value="">Seleccionar</option>
+                        <option value="services">Servicios</option>
+                        <option value="food">Alimentación</option>
+                        <option value="transport">Transporte</option>
+                        <option value="entertainment">Entretenimiento</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="opDate" class="label">Fecha</label>
+                    <input type="date" id="opDate" class="input" name="date" required>
+                </div>
+
+                <footer class="modal-footer">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+                    <button type="submit" class="btn-primary" id="submitBtn">Agregar</button>
+                </footer>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Scripts -->
+    <script src="js/data-manager.js"></script>
+    <script src="js/balance.js"></script>
+</body>
+
+</html>
