@@ -5,7 +5,7 @@ body {
 }
 
 .header {
-    background-color: #001f3d;
+    background-color: #1dd1a1;
     color: white;
     padding: 1rem 2rem;
     display: flex;
@@ -14,17 +14,23 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-volver {
-    background-color: #4c6277;
-    border: none;
-    padding: 0.5rem 1rem;
+.btn-logout {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
-    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: white;
     cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
-
-.btn-volver:hover {
-    background-color: #3b4e5c;
+.btn-logout > a{
+    text-decoration: none;
+    color: white;
+}
+.btn-logout:hover {
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .main-grid {
@@ -65,18 +71,23 @@ input {
     border-radius: 6px;
 }
 
-.btn-agregar {
-    background-color: #00BFC8;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border: none;
+.btn-add {
+    background: #1dd1a1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: black;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
-
-.btn-agregar:hover {
-    background-color: #00a5ad;
+.btn-add > a{
+    text-decoration: none;
+    color: black;
+}
+.btn-add:hover {
+    background: rgba(26, 245, 161, 0.25);
 }
 
 #lista-categorias {

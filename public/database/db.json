@@ -1,70 +1,62 @@
 {
-    "users": [
-        {
-            "id": "001",
-            "username": "admin",
-            "password": "1234"
-        }
-    ],
-    "categories": [
-        {
-            "id": "32f2",
-            "nombre": "carroceria"
-        },
-        {
-            "id": "8386",
-            "nombre": "camiones"
-        },
-        {
-            "id": "eaee",
-            "nombre": "electrodomesticos"
-        },
-        {
-            "id": "a091",
-            "nombre": "comisaria"
-        },
-        {
-            "id": "0114",
-            "nombre": "plays"
-        },
-        {
-            "id": "64bf",
-            "nombre": "jesus david castro"
-        }
-    ],
-    "movimientos": [
-        {
-            "id": "49af",
-            "tipo": "gasto",
-            "descripcion": "2434234",
-            "importe": 234234,
-            "fecha": "2025-07-16",
-            "categoryId": "eaee"
-        },
-        {
-            "id": "0240",
-            "tipo": "gasto",
-            "descripcion": "sdfsdf",
-            "importe": 23423,
-            "fecha": "2025-07-17",
-            "categoryId": "a091"
-        },
-        {
-            "id": "5154",
-            "tipo": "ganancia",
-            "descripcion": "edasd",
-            "importe": 3.4e+235,
-            "fecha": "2025-07-14",
-            "categoryId": "8386"
-        }
-    ],
-    "reportes": [
-        {
-            "id": "r001",
-            "tipo": "top-categorias",
-            "categoria": "electrodomesticos",
-            "importe": 123123,
-            "fecha": "2025-07"
-        }
-    ]
+  "users": [
+    {
+      "id": "001",
+      "username": "admin",
+      "password": "1234"
+    }
+  ],
+  "categories": [
+    {
+      "id": "eaee",
+      "nombre": "electrodomesticos"
+    },
+    {
+      "id": "a091",
+      "nombre": "comisaria"
+    },
+    {
+      "id": "0114",
+      "nombre": "plays"
+    },
+    {
+      "id": "64bf",
+      "nombre": "jesus david castro"
+    },
+    {
+      "id": "2643",
+      "nombre": "camiones"
+    },
+    {
+      "id": "f8d1",
+      "nombre": "camiones"
+    }
+  ],
+  "movimientos": [
+    {
+      "id": "49af",
+      "tipo": "gasto",
+      "descripcion": "2434234",
+      "importe": 234234,
+      "fecha": "2025-07-16",
+      "categoryId": "eaee"
+    },
+    {
+      "id": "0240",
+      "tipo": "gasto",
+      "descripcion": "sdfsdf",
+      "importe": 23423,
+      "fecha": "2025-07-17",
+      "categoryId": "a091"
+    }
+  ],
+  "reportes": [
+    {
+      "id": "r001",
+      "tipo": "top-categorias",
+      "categoria": "electrodomesticos",
+      "importe": 123123,
+      "fecha": "2025-07"
+    }
+  ]
 }

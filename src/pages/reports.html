@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reportes</title>
+    <link rel="stylesheet" href="../styles/reports.css" />
+    <script type="module" src="../js/guardian.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Reportes y Análisis</h1>
+        <button id="volver-dashboard" class="btn-volver" onclick="location.href='./balance.html'">
+            Volver al Dashboard
+        </button>
+    </header>
+
+    <main class="reportes-container">
+        <!-- Resumen general -->
+        <section class="resumen">
+            <h2>Resumen General</h2>
+            <article class="reportes-grid">
+                <article class="reporte-box">
+                    <h3>🔝 Categoría más vendida</h3>
+                    <p id="categoria-mas-vendida" >
+                        <!-- ingresara la venta mas vendidas -->
+                    </p>
+                </article>
+                <article  class="reporte-box">
+                    <h3>🔽 Categoría con más compras</h3>
+                    <p id="categoria-mas-compras">
+                        <!-- ingresara con mas compras  -->
+                    </p>
+                </article>
+                <article  class="reporte-box">
+                    <h3>📦 Producto más vendido</h3>
+                    <p id="producto-mas-vendido">
+                        <!-- ingresara mas vendido -->
+                    </p>
+                </article>
+                <article  class="reporte-box">
+                    <h3>🛒 Producto más comprado</h3>
+                    <p id="producto-comprado">
+                        <!-- ingresara lo mas comprado -->
+                    </p>
+                </article>
+                <article  class="reporte-box">
+                    <h3>📈 Mes con más ventas</h3>
+                    <p id="mas-ventas">
+                        <!-- ingresara mayor a mas ventas -->
+                    </p>
+                </article>
+                <article class="reporte-box">
+                    <h3>📉 Mes con más compras</h3>
+                    <p id="mes-mas-compra" >
+                        <!-- ingresara con mas compras -->
+                    </p>
+                </article>
+            </article>
+        </section>
+
+        <!-- Totales agrupados -->
+        <section class="totales">
+            <h2>Totales por Categoría</h2>
+            <div id="totales-categoria" class="tabla-container">
+                <!-- Tabla dinámica desde JS -->
+            </div>
+
+            <h2>Totales por Mes</h2>
+            <div id="totales-mes" class="tabla-container">
+                <!-- Tabla dinámica desde JS -->
+            </div>
+        </section>
+    </main>
+    <script src="../js/reports.js"></script>
+</body>
+
+</html>
