@@ -24,7 +24,7 @@ async function login (inputUsername,inputPassword) { // se encarga de usar el lo
 
             localStorage.setItem("currentUser", JSON.stringify(userFound)) // el local storage la llave
             alert("login correcto")
-            window.location.href ="balance.html"
+            window.location.href ="./balance.html"
             
 
         }else{
